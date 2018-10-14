@@ -28,6 +28,14 @@ class App extends Component {
     ]
   }
 
+  removeContact = contactId => {
+    this.setState({
+      contacts: this.state.contacts.filter(
+        contact => contactId !== contact.id
+      )
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,7 +48,7 @@ class App extends Component {
               this.state.contacts.map(
                 contact => (
                   <li key={contact.id}>
-                    {contact.name}
+                    {contact.name}<button onClick={() => this.removeContact(contact.id)}>Remove</button>
                   </li>
                 )
               )
