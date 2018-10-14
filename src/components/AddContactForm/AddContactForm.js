@@ -14,8 +14,8 @@ class AddContactForm extends Component {
     contactNumber: '',
     error: null
   }
-  
- 
+
+
 
   handleSubmit = event => {
     event.preventDefault()
@@ -48,8 +48,8 @@ class AddContactForm extends Component {
           {
             this.state.error && <p>{this.state.error.message}</p>
           }
-          <input type="contactName" value={this.state.contactName} onChange={this.handleChangeName}/>
-          <input type="contactNumber" value={this.state.contactNumber} onChange={this.handleChangeNumber}/>
+          <span>Name: </span> <input type="contactName" value={this.state.contactName} onChange={this.handleChangeName} />
+          <span>Number: </span> <input type="contactNumber" value={this.state.contactNumber} onChange={this.handleChangeNumber} />
           <button>Add Contact</button>
         </form>
       </div>

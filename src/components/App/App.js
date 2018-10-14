@@ -60,21 +60,24 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Contact List</h1>
-          <button onClick={this.handleUndo}>Undo</button>
         </header>
         <main className="App-main">
-        <AddContactForm addContactFunction={this.addContact}/>
-          <ul>
-            {
-              this.state.contacts.map(
-                contact => (
-                  <li key={contact.id}>
-                    {contact.name} {contact.number} <button onClick={() => this.removeContact(contact.id)}>Remove</button>
-                  </li>
+          <AddContactForm addContactFunction={this.addContact} />
+          <div className="App-contactList">
+            <h2>My contact list</h2>
+            <ol>
+              {
+                this.state.contacts.map(
+                  contact => (
+                    <li key={contact.id}>
+                      {contact.name} tel. {contact.number} <button onClick={() => this.removeContact(contact.id)}>Remove</button>
+                    </li>
+                  )
                 )
-              )
-            }
-          </ul>
+              }
+            </ol>
+            <button onClick={this.handleUndo}>Undo</button>
+          </div>
         </main>
       </div>
     );

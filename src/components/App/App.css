@@ -18,14 +18,35 @@
   font-weight: bold;
 }
 
+.App-main h2 {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.App-contactList {
+  background-color: rgb(61, 58, 66);
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px black;
+  margin-bottom: 20px;
+}
+
 input {
   display: block;
+  margin: 5px auto;
 }
+
 p {
   font-size: 14px;
   color: red;
 }
 
+button {
+  margin: 5px;
+  background: lightgray;
+  font-weight: bold;
+  border-radius: 10px;
+}
 
 @keyframes App-logo-spin {
   from {
