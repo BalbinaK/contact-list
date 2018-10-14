@@ -25,15 +25,21 @@ class App extends Component {
         surname: 'Butcher',
         number: '97653234'
       }
-    ]
+    ],
+    previousState: null
   }
 
   removeContact = contactId => {
     this.setState({
+      previousState: this.state,
       contacts: this.state.contacts.filter(
         contact => contactId !== contact.id
       )
     })
+  }
+
+  handleUndo = () => {
+    this.setState(this.state.previousState)
   }
 
   render() {
@@ -41,6 +47,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Contact List</h1>
+          <button onClick={this.handleUndo}>Undo</button>
         </header>
         <main className="App-main">
           <ul>
