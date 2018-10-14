@@ -1,19 +1,21 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './AddContactForm.css'
 
 class AddContactForm extends Component {
-  
+  static propTypes = {
+    addContactFunction: PropTypes.func
+  }
+
+
   state = {
     contactName: '',
     contactNumber: '',
     error: null
   }
   
-  static propTypes = {
-
-  }
+ 
 
   handleSubmit = event => {
     event.preventDefault()
@@ -23,6 +25,7 @@ class AddContactForm extends Component {
       })
       return;
     }
+    this.props.addContactFunction(this.state.contactName, this.state.contactNumber)
     this.setState({ contactName: '', contactNumber: '', error: null })
   }
 

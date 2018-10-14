@@ -44,6 +44,17 @@ class App extends Component {
     this.setState(this.state.previousState)
   }
 
+  addContact = (name, number) => {
+    this.setState({
+      previousState: this.state,
+      contacts: this.state.contacts.concat({
+        id: Date.now(),
+        name,
+        number
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -52,13 +63,13 @@ class App extends Component {
           <button onClick={this.handleUndo}>Undo</button>
         </header>
         <main className="App-main">
-        <AddContactForm/>
+        <AddContactForm addContactFunction={this.addContact}/>
           <ul>
             {
               this.state.contacts.map(
                 contact => (
                   <li key={contact.id}>
-                    {contact.name}<button onClick={() => this.removeContact(contact.id)}>Remove</button>
+                    {contact.name} {contact.number} <button onClick={() => this.removeContact(contact.id)}>Remove</button>
                   </li>
                 )
               )
