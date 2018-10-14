@@ -8,26 +8,7 @@ import './App.css';
 class App extends Component {
 
   state = {
-    contacts: [
-      {
-        id: 1,
-        name: 'Barry',
-        surname: 'Fletcher',
-        number: '43243443'
-      },
-      {
-        id: 2,
-        name: 'Harry',
-        surname: 'Smith',
-        number: '76555543'
-      },
-      {
-        id: 3,
-        name: 'Marry',
-        surname: 'Butcher',
-        number: '97653234'
-      }
-    ],
+    contacts: JSON.parse(localStorage.getItem('contacts') || '[]'),
     previousState: null
   }
 
@@ -54,6 +35,11 @@ class App extends Component {
       })
     })
   }
+
+  componentDidUpdate() {
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+  }
+
 
   render() {
     return (
