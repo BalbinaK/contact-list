@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import AddContactForm from '../AddContactForm'
+
 import './App.css';
 
 
@@ -50,6 +52,7 @@ class App extends Component {
           <button onClick={this.handleUndo}>Undo</button>
         </header>
         <main className="App-main">
+        <AddContactForm/>
           <ul>
             {
               this.state.contacts.map(

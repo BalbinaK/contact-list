@@ -8,11 +8,17 @@ class AddContactForm extends Component {
 
   }
 
+  handleSubmit = event => {
+    event.preventDefault()
+  }
+
+
+
   render() {
     return (
       <div className="AddContactForm">
-        <form>
-          <input/>
+        <form onSubmit={this.handleSubmit}>
+          <input />
           <input />
           <button>Add</button>
         </form>
