@@ -18,9 +18,14 @@
   font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+input {
+  display: block;
 }
+p {
+  font-size: 14px;
+  color: red;
+}
+
 
 @keyframes App-logo-spin {
   from {

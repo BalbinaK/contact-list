@@ -4,23 +4,50 @@ import PropTypes from 'prop-types'
 import './AddContactForm.css'
 
 class AddContactForm extends Component {
+  
+  state = {
+    contactName: '',
+    contactNumber: '',
+    error: null
+  }
+  
   static propTypes = {
 
   }
 
   handleSubmit = event => {
     event.preventDefault()
+    if (this.state.contactName === '' || this.state.contactNumber === '') {
+      this.setState({
+        error: new Error('Please fill out all fields')
+      })
+      return;
+    }
+    this.setState({ contactName: '', contactNumber: '', error: null })
   }
 
+  handleChangeName = event => {
+    this.setState({
+      contactName: event.target.value
+    })
+  }
 
+  handleChangeNumber = event => {
+    this.setState({
+      contactNumber: event.target.value
+    })
+  }
 
   render() {
     return (
       <div className="AddContactForm">
         <form onSubmit={this.handleSubmit}>
-          <input />
-          <input />
-          <button>Add</button>
+          {
+            this.state.error && <p>{this.state.error.message}</p>
+          }
+          <input type="contactName" value={this.state.contactName} onChange={this.handleChangeName}/>
+          <input type="contactNumber" value={this.state.contactNumber} onChange={this.handleChangeNumber}/>
+          <button>Add Contact</button>
         </form>
       </div>
     )
