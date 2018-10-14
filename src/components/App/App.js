@@ -55,9 +55,13 @@ class App extends Component {
               {
                 this.state.contacts.map(
                   contact => (
-                    <li key={contact.id}>
-                      {contact.name} tel. {contact.number} <button onClick={() => this.removeContact(contact.id)}>Remove</button>
-                    </li>
+                    <div className="App-contactItem">
+                      <li key={contact.id}>
+                        {contact.name} tel. {contact.number}
+                      </li>
+                      <button onClick={() => this.removeContact(contact.id)}>Remove</button>
+                    </div>
+
                   )
                 )
               }

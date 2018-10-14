@@ -32,6 +32,15 @@
   margin-bottom: 20px;
 }
 
+.App-contactItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.App-contactItem li {
+  margin-right: 10px;
+}
+
 input {
   display: block;
   margin: 5px auto;
@@ -42,7 +51,12 @@ p {
   color: red;
 }
 
+li {
+  text-align: left;
+}
+
 button {
+  height: 25px;
   margin: 5px;
   background: lightgray;
   font-weight: bold;
