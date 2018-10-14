@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import InputHints from 'react-input-hints'
 
 import './AddContactForm.css'
 
@@ -48,8 +49,10 @@ class AddContactForm extends Component {
           {
             this.state.error && <p>{this.state.error.message}</p>
           }
-          <span>Name: </span> <input type="contactName" value={this.state.contactName} onChange={this.handleChangeName} />
-          <span>Number: </span> <input type="contactNumber" value={this.state.contactNumber} onChange={this.handleChangeNumber} />
+          <InputHints type="contactName" value={this.state.contactName} onChange={this.handleChangeName} placeholders={[
+            'Enter name here...'
+          ]} />
+          <input type="contactNumber" value={this.state.contactNumber} onChange={this.handleChangeNumber} placeholder='Enter number here...' />
           <button>Add Contact</button>
         </form>
       </div>
